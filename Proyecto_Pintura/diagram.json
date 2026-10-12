@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "author": "Robot de pintura ESP32",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 100,
+      "left": 20,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-a4988",
+      "id": "drvX",
+      "top": 30,
+      "left": 350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-a4988",
+      "id": "drvY",
+      "top": 250,
+      "left": 350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "motorX",
+      "top": 10,
+      "left": 570,
+      "attrs": {
+        "size": "17"
+      }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "motorY",
+      "top": 230,
+      "left": 570,
+      "attrs": {
+        "size": "17"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sensor",
+      "top": 430,
+      "left": 20,
+      "attrs": {
+        "distance": "150"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "estop",
+      "top": 420,
+      "left": 230,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "limitX",
+      "top": 490,
+      "left": 230,
+      "attrs": {
+        "color": "blue"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "limitY",
+      "top": 560,
+      "left": 230,
+      "attrs": {
+        "color": "blue"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "pistola",
+      "top": 440,
+      "left": 430,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resPistola",
+      "top": 480,
+      "left": 430,
+      "attrs": {
+        "value": "1000"
+      }
+    }
+  ],
+  "connections": [
+    ["esp:TX", "$serialMonitor:RX", "", []],
+    ["esp:RX", "$serialMonitor:TX", "", []],
+    ["esp:18", "drvX:STEP", "orange", []],
+    ["esp:19", "drvX:DIR", "blue", []],
+    ["esp:3V3", "drvX:VDD", "red", []],
+    ["esp:5V", "drvX:VMOT", "red", []],
+    ["esp:GND.1", "drvX:GND.1", "black", []],
+    ["esp:GND.1", "drvX:GND.2", "black", []],
+    ["esp:GND.1", "drvX:ENABLE", "black", []],
+    ["drvX:RESET", "drvX:SLEEP", "green", []],
+    ["motorX:A+", "drvX:1A", "green", []],
+    ["motorX:A-", "drvX:1B", "green", []],
+    ["motorX:B+", "drvX:2A", "green", []],
+    ["motorX:B-", "drvX:2B", "green", []],
+    ["esp:21", "drvY:STEP", "orange", []],
+    ["esp:22", "drvY:DIR", "blue", []],
+    ["esp:3V3", "drvY:VDD", "red", []],
+    ["esp:5V", "drvY:VMOT", "red", []],
+    ["esp:GND.1", "drvY:GND.1", "black", []],
+    ["esp:GND.1", "drvY:GND.2", "black", []],
+    ["esp:GND.1", "drvY:ENABLE", "black", []],
+    ["drvY:RESET", "drvY:SLEEP", "green", []],
+    ["motorY:A+", "drvY:1A", "green", []],
+    ["motorY:A-", "drvY:1B", "green", []],
+    ["motorY:B+", "drvY:2A", "green", []],
+    ["motorY:B-", "drvY:2B", "green", []],
+    ["esp:5V", "sensor:VCC", "red", []],
+    ["esp:GND.1", "sensor:GND", "black", []],
+    ["esp:5", "sensor:TRIG", "green", []],
+    ["esp:17", "sensor:ECHO", "purple", []],
+    ["esp:23", "estop:1.l", "red", []],
+    ["esp:GND.1", "estop:2.l", "black", []],
+    ["esp:16", "limitX:1.l", "blue", []],
+    ["esp:GND.1", "limitX:2.l", "black", []],
+    ["esp:4", "limitY:1.l", "blue", []],
+    ["esp:GND.1", "limitY:2.l", "black", []],
+    ["esp:25", "resPistola:1", "green", []],
+    ["resPistola:2", "pistola:A", "green", []],
+    ["pistola:C", "esp:GND.1", "black", []]
+  ],
+  "dependencies": {},
+  "serialMonitor": {
+    "display": "always"
+  }
+}
