@@ -1,4 +1,4 @@
-Proyecto: Sistema Automatizado de Pintura Robótica con Ejes Cartesianos y Control de Seguridad.
+Proyecto: Sistema Automatizado de Pintura 
 
 Objetivo General.
 Diseñar e implementar un prototipo mecatrónico basado en ESP32 capaz de simular el escaneo y pintado automatizado de piezas automotrices mediante ejes cartesianos (motores a pasos), integrando un sistema de aislamiento de potencia para la herramienta de pintura y un lazo de seguridad de hardware (E-Stop).
